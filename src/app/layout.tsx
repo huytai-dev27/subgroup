@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Lexend } from "next/font/google";
 import "./globals.css";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-lexend",
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,11 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={lexend.className}>{children}</body>
     </html>
   );
 }

@@ -1,101 +1,90 @@
-import Image from "next/image";
+import { NextPage } from "next";
+import { avatar_airline, avatar_vote, icon_dropdown } from "./component/avatar";
+import { avatar_hotels } from "./component/avatar";
 
-export default function Home() {
+const Calculate: NextPage = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-[#E0F6FF66] pt-[90px] px-[12%] pb-[185px]">
+      <div className="flex flex-col items-center">
+        <hr className="w-[54px] h-[6px] bg-[#86D6F5] rounded-[12px]" />
+        <p className="text-[44px] text-[#010100] font-[400]">
+          The <span className="font-[600]">Cash Vs Points</span> Calculator
+        </p>
+        <p className="text-[16px] mt-[16px] w-[50%] text-center">
+          If you’re wondering if a deal is good, check here first. We’ll help
+          you compare the cost in points or miles to cash to see which option is
+          best.
+        </p>
+      </div>
+      <div className="flex flex-col items-center">
+        <div className="flex gap-[30px] items-center mt-[30px] w-[85%]">
+          <button className="flex gap-1 items-center">
+            {avatar_airline}
+            <p className="text-[19px] font-[500]">Airlines</p>
+          </button>
+          <button className="flex gap-1 items-center">
+            {avatar_hotels}
+            <p className="text-[19px] font-[500]">Hotels</p>
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="w-[85%]">
+          <hr className="rounded-[12px] mt-[7px] w-[95px] h-[5px] bg-[#86D6F5]" />
+        </div>
+        <div className="w-[85%] bg-white rounded-[16px] mt-[25px] p-[34px] drop-shadow-[0_0px_14px_#11111124]">
+          <p className="text-[25px] font-[600]">Points or miles</p>
+          <div className="px-[3px] py-[25px] flex gap-[16px] justify-center">
+            <div className="w-[50%] relative">
+              <p>Air Canada Aeroplan</p>
+              <select className="mt-[14px] w-full border-[1px] rounded-[12px] h-[55px] px-[15px] appearance-none" />
+              <div className="absolute top-[55px] right-0 flex items-center px-2 pointer-events-none">
+                {icon_dropdown}
+              </div>
+            </div>
+            <div className="w-[50%] relative">
+              <p>Cost in points or miles</p>
+              <select className="mt-[14px] w-full border-[1px] rounded-[12px] h-[55px] px-[15px] appearance-none" />
+              <div className="absolute top-[55px] right-0 flex items-center px-2 pointer-events-none">
+                {icon_dropdown}
+              </div>
+            </div>
+          </div>
+          <div className="mt-[20px]">
+            <p className="text-[15px] font-[500]">Fees (if any)</p>
+            <input
+              type="text"
+              className="h-[55px] w-full mt-[14px] border-[1px] rounded-[12px] px-[15px]"
+              placeholder="$"
+            />
+          </div>
+          <hr className="w-full mt-[50px]" />
+          <p className="font-[600] mt-[30px] text-[25px]">Compare to</p>
+          <p className="mt-[20px] text-[15px] font-[500]">
+            Cost in cash{" "}
+            <span className="text-[14px] font-[300] text-[#5E5F66]">
+              (not required)
+            </span>
+          </p>
+          <input
+            type="text"
+            className="h-[55px] w-full mt-[14px] border-[1px] rounded-[12px] px-[15px]"
+            placeholder="$"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="flex justify-center items-center gap-[36px] mt-[37px]">
+            <button className="bg-[#01AAEB] text-white text-[17px] font-[600] px-[125px] py-[18px] border-[1px] rounded-[7px]">
+              Calculate
+            </button>
+            <button className="bg-gradient-to-r from-[#00DFEF] to-[#0099CC] text-white text-[17px] font-[600] px-[125px] py-[18px] border-[1px] rounded-[7px]">
+              Start over
+            </button>
+          </div>
+        </div>
+        <button className="mt-[60px] flex gap-[10px] w-[85%]">
+          <p className="text-[15px] font-[500]">Was this helpful?</p>
+          {avatar_vote}
+        </button>
+      </div>
     </div>
   );
-}
+};
+
+export default Calculate;
